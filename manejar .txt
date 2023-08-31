@@ -1,0 +1,76 @@
+ad:
+No se necesita:
+  - Delivery: no todas tienen la fecha ahi
+  - PaymentExchangeRate: irrelevante
+  - WithholdingTaxTotal: retefuente
+  Necesito: 
+  desde el segundo puedo tomar el id factura y la fecha:
+  ID:
+  IssueDate:
+  AccountingCustomerParty: 
+    - Party:
+      - PartyIdentification:
+        - ID: ID control IT
+      - PhysicalLocation:
+        - Address: CityName: Ciudad Control IT
+  AccountingSupplierParty:
+  - Party: 
+    - PartyLegalEntity:
+      - urn:oasis:
+        - CompanyID: id proveedor
+          - CorporateRegistrationScheme:
+            - ID: DBQ
+  PaymentMeans:
+  - PaymentDueDate: dia de vencimiento.
+  InvoiceLine:
+  - Item: 
+    - Description: Descripcion del producto
+    - SellersItemIdentification:
+      - ID: Id del item
+  - Price:
+    - PriceAmount: Valor unitario
+    - baseQuantity: cantidad
+  TaxTotal:
+    - taxSubtotal: 
+      - taxCategory: 
+        - Percent: iva porcentaje
+
+--------------------------------------------------------------------------------
+AccountingSupplierParty:
+  - Party: 
+    - PartyLegalEntity:
+      - urn:oasis:
+        - CompanyID: id empresa
+Delivery: dia de realizacion.
+ParentDocumentLineReference:
+  - DocumentReference:
+    - IssueDate: fecha realizacion
+PaymentMeans:
+  - PaymentDueDate: dia de vencimiento.
+WithholdingTaxTotal:
+  - TaxAmount: retefuente en pesos
+  - TaxSubtotal: 
+    - taxCategory:
+      - Percent: porecentaje retefuente
+        - taxScheme: nombre "ReteFuente"
+LegalMonetaryTotal: 
+  - PayableAmount: Total con todo.
+InvoiceLine:
+  - Item: 
+    - Description: Descripcion del producto
+    - SellersItemIdentification:
+      - ID: Id del item
+TaxTotal:
+- taxSubtotal: 
+  - taxableAmount: Precio original
+  - taxAmount: Iva en pesos
+  - taxCategory: 
+    - Percent: iva porcentaje
+    - taxScheme: nombre "IVA"
+
+DocumentReference:
+  - ID: Id empresa
+ReceiverParty:
+  - PartyTaxScheme: 
+    - CompanyID: ID Company
+      
